@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+          xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+          xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+          xsi:type="MailApp">
+
+  <Id>f5631e49-416f-4f3c-ad0a-ec8b69629630</Id>
+
+  <Version>0.0.1</Version>
+  <ProviderName>icambron</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Crash Test" />
+  <Description DefaultValue="Crash Test"/>
+
+  <IconUrl DefaultValue="https://isaaccambron.com/notification-crash/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://isaaccambron.com/notification-crash/assets/icon-32.png"/>
+
+  <SupportUrl DefaultValue="https://github.com/icambron/notification-crash"/>
+
+  <Hosts>
+    <Host Name="Mailbox" />
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.1" />
+    </Sets>
+  </Requirements>
+    <FormSettings>
+      <Form xsi:type="ItemRead">
+        <DesktopSettings>
+          <SourceLocation DefaultValue="https://isaaccambron.com/notification-crash/index.html"/>
+          <RequestedHeight>250</RequestedHeight>
+        </DesktopSettings>
+      </Form>
+    </FormSettings>
+
+  <Permissions>ReadWriteMailbox</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
+  </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Requirements>
+      <bt:Sets DefaultMinVersion="1.3">
+        <bt:Set Name="Mailbox" />
+      </bt:Sets>
+    </Requirements>
+    <Hosts>
+      <Host xsi:type="MailHost">
+
+        <DesktopFormFactor>
+          <!-- Message Read -->
+          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="msgReadGroup">
+                <Label resid="crashGroup" />
+                <Control xsi:type="Button" id="crashOpenPanelButton">
+                  <Label resid="crashOpenPanelButtonLabel" />
+                  <Supertip>
+                    <Title resid="crashOpenPanelTipTitle" />
+                    <Description resid="crashOpenPanelTipDescription" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="icon16" />
+                    <bt:Image size="32" resid="icon32" />
+                    <bt:Image size="80" resid="icon80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="crashPanelURL" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="icon16" DefaultValue="https://isaaccambron.com/notification-crash/assets/icon-16.png"/>
+        <bt:Image id="icon32" DefaultValue="https://isaaccambron.com/notification-crash/assets/icon-32.png"/>
+        <bt:Image id="icon80" DefaultValue="https://isaaccambron.com/notification-crash/assets/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="crashPanelURL" DefaultValue="https://isaaccambron.com/notification-crash/index.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="crashGroup" DefaultValue="Crasher"/>
+        <bt:String id="crashOpenPanelButtonLabel" DefaultValue="Crasher"/>
+        <bt:String id="crashOpenPanelTipTitle" DefaultValue="Crasher"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="crashOpenPanelTipDescription" DefaultValue="Crasher"/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>

@@ -1,0 +1,8 @@
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/Office.js"></script>
+
+<script>
+  Office.initialize = function() {
+    var url = "https://isaaccambron.com/notification-crash/popup.html";
+    Office.context.ui.displayDialogAsync(url, { height: 70, width: 80, displayInIframe: true});
+  }
+</script>
