@@ -3,6 +3,7 @@
 <script>
   Office.initialize = function() {
     var url = "https://isaaccambron.com/notification-crash/popup.html";
-    Office.context.ui.displayDialogAsync(url, { height: 20, width: 50, displayInIframe: true});
+    console.log(Office.context.mailbox.diagnostics);
+    Office.context.ui.displayDialogAsync(url, { height: 20, width: 50 });
   }
 </script>
