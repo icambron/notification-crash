@@ -1,6 +1,7 @@
 <script src="https://appsforoffice.microsoft.com/lib/1/hosted/Office.js"></script>
 <script>
   Office.initialize = function() {
+    setTimeout(function() { console.log(Office.context.mailbox.diagnostics); 20}),
     console.log("hello");
   }
 </script>
