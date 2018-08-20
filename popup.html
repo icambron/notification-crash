@@ -1,9 +1,10 @@
 <script src="https://appsforoffice.microsoft.com/lib/1/hosted/Office.js"></script>
+<p>Hello. I'm just an example modal. Close me, then try to keep using Outlook</p>
+<p id="version" >
 <script>
   Office.initialize = function() {
-    setTimeout(function() { console.log(Office.context.mailbox.diagnostics); 10000}),
+    document.getElementById("version").innerText = Office.context.mailbox.diagnostics.hostVersion;
     console.log("hello");
   }
 </script>
-<p>Hello. I'm just an example modal. Close me, then try to keep using Outlook</p>
 
